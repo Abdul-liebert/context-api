@@ -13,7 +13,7 @@ function GlobalReducer(state, action) {
 }
 const initialState = {
     theme: "light",
-    auth: "register",
+    auth: "guest",
   };
 
   export function GlobalProvider({ children }) {

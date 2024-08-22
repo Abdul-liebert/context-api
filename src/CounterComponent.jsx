@@ -11,17 +11,29 @@ function Component() {
         textAlign: 'center'
     }
 
+    const toggleTheme = () => {
+      const theme = state.theme === 'light' ? 'dark' : 'light'
+      dispatch({ type: 'setTheme', payload: theme })
+    }
+
+    const toggleAuth = () => {
+      const auth =  state.auth === 'guess' ? 'user' : 'guess'
+      dispatch({ type: 'setAuth', payload: auth })
+    }
+
+    const status = state.auth === 'guess' ? 'login' : 'logout'; 
+
   return(
     <div>
-    <div style={style}>
+    <div style={style}> 
       <p>Current Theme: {state.theme}</p>
-      <button onClick={() => dispatch({ type: 'setTheme', payload: 'light' })}>
-        Set Dark Theme
+      <button onClick={toggleTheme}>
+        Set Theme
       </button>
     </div>
       <p>Current Auth: {state.auth}</p>
-      <button onClick={() => dispatch({ type: 'setAuth', payload: 'register' })}>
-        Set Auth to Login
+      <button onClick={toggleAuth}>
+        {status}
       </button>
     </div>
   )
